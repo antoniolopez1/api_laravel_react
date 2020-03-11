@@ -47,6 +47,8 @@ export default class AddDepartament extends Component {
         <label>
         Pais:
         {/*<input type='text' cou_id='cou_id' onChange={this.handleChange1} />*/}
+      </label>
+      <label style={{width: '200px'}}>
         <Select cou_id='cou_id' options={this.Country()} onChange={this.handleChange1}/>
         </label>
         <button type='submit'>Guardar</button>

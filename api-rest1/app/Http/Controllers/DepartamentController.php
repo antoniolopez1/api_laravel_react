@@ -14,6 +14,7 @@ class DepartamentController extends Controller
       $department = Departament::join('countries', 'countries.country_id', '=', 'departaments.cou_id')
                                 ->select('departaments.*','countries.name as country_name')
                                 ->get();
+      $depart = json_decode($department, true);
       // $country = Country::join('departaments', 'countries.country_id', '=', 'departaments.cou_id')
       //                     //->where('departaments.depart_id', '=', $department->get('depart'))
       //                     ->get('countries.*');
@@ -21,8 +22,8 @@ class DepartamentController extends Controller
       // $arrayDepartment = array($department);
       // $arrayCountry = array('country_name' => $country[0]['name']);
       // $departamento = array_merge($arrayDepartment, $arrayCountry);
-
-      return response()->json($department);
+  // printf($department);
+      return response()->json($depart);
   }
 
   /**
@@ -68,11 +69,12 @@ class DepartamentController extends Controller
       $department = Departament::find($id);
       $country = Country::join('departaments', 'countries.country_id', '=', 'departaments.cou_id')
                           ->where('departaments.depart_id', '=', $id)
-                          ->get('countries.*');
-      $arrayDepartment = array($department);
-      $arrayCountry = array('country_name' => $country[0]['name']);
-      $departamento = array_merge($arrayDepartment, $arrayCountry);
-      return response()->json($departamento);
+                          ->select('departaments.*', 'countries.name as country_name')
+                          ->first();
+      // $arrayDepartment = array($department);
+      // $arrayCountry = array('country_name' => $country[0]['name']);
+      // $departamento = array_merge($arrayDepartment, $arrayCountry);
+      return response()->json($country);
   }
 
   /**

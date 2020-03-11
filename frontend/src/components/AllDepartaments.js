@@ -12,12 +12,12 @@ export default class AllDepartaments extends Component{
   destroy = event=>{
     event.preventDefault();
     const depart= this.state.depart_id;
-    console.log({depart});
+    //console.log({depart});
     axios.delete(`http://localhost:8000/api/departaments/${depart}`).then(
       res=>{
-        console.log(res);
+      //  console.log(res);
         axios.get('http://localhost:8000/api/departaments').then(res=>{
-          console.log(res);
+          console.log(res.data);
           this.setState({departaments: res.data});
         }).catch(error=>{alert(error)});
       }
@@ -25,7 +25,7 @@ export default class AllDepartaments extends Component{
   }
   componentDidMount(){
     axios.get('http://localhost:8000/api/departaments').then(res=>{
-      console.log(res);
+      console.log(res.data.depart_id);
       this.setState({departaments: res.data});
     }).catch(error=>{alert(error)});
 
