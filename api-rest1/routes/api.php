@@ -23,6 +23,8 @@ Route::resource('countries','CountryController');
 // Route::delete('country/{country}','CountryController@destroy');
 
 Route::resource('departaments','DepartamentController');
+Route::resource('cities','CityController');
 // Route::post('departaments/{departament}', 'DepartamentController@store');
 // Route::put('departaments/{departament}','DepartamentController@update');
 // Route::delete('departaments/{departament}','DepartamentController@destroy');
+Route::post('oauth/token', '\vendor\laravel\passport\src\Http\Controllers\AccessTokenController@issueToken ');

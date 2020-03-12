@@ -15,4 +15,7 @@ class Departament extends Model
     function countries() {
         return $this->belongsTo('App\Country', 'cou_id', 'country_id');
     }
+    function cities() {
+        return $this->hasMany('cities', 'city_id');
+    }
 }

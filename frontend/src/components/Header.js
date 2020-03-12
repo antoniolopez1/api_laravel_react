@@ -55,6 +55,12 @@ export default class Header extends Component{
                       <DropdownItem to="add_departament" tag={Link}>
                         Agregar Departamento
                       </DropdownItem>
+                      <DropdownItem to="/cities" tag={Link}>
+                        Ciudades
+                      </DropdownItem>
+                      <DropdownItem to="/add_city" tag={Link}>
+                        Agregar Ciudades
+                      </DropdownItem>
                     </DropdownMenu>
                   </UncontrolledDropdown>
                 </Nav>
